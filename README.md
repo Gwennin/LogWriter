@@ -5,16 +5,16 @@ A little logger lib utility.
 
 ##Log Levels
 
-  Debug = 1,
+	Debug = 1,
 	Info = 2,
 	Warn = 3,
 	Alert = 4,
-  Critical = 5
+	Critical = 5
     
 ##Log Name Style
 
-  Date, // ex : 2012_12_21.log
-  AlphaLogLevel, // ex : Debug.log
+	Date, // ex : 2012_12_21.log
+	AlphaLogLevel, // ex : Debug.log
 	NumericLogLevel, // ex : 1.log
 	Date_AlphaLogLevel, // ex : 2012_12_21_Debug.log
 	Date_NumericLogLevel, // ex : 2012_12_21_1.log
@@ -25,8 +25,8 @@ A little logger lib utility.
 
 Includes 'Log.h' & 'Enums.h'.
 
-  Logger::Log::setLogNameStyle("Date");
-  Logger::Log::setLogPath("./");
+	Logger::Log::setLogNameStyle("Date");
+	Logger::Log::setLogPath("./");
 	
 	Logger::Log::log("What else?", Logger::Alert);
 	
