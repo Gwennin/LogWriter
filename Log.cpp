@@ -13,6 +13,8 @@ using namespace Logger;
 LogWriter * Log::_writer = 0;
 LogLevel Log::_lastLogLevel = UnknownLevel;
 tm * Log::_lastday = Utils::getDay();
+string Log::_logPath = "./";
+LogNameStyle Log::_logNameStyle = UnknownName;
 
 void Log::log(const string message, const LogLevel level) {
 	
@@ -30,12 +32,7 @@ void Log::log(const string message, const LogLevel level) {
 		_writer = new LogWriter(_logPath, _logNameStyle, level);
 		_lastLogLevel = level;
 		
-		free(_lastday);
-		
 		_lastday = today;
-	}
-	else {
-		free(today);
 	}
 	
 	_writer->writeLog(message, level);
@@ -85,8 +82,5 @@ void Log::close() {
 		delete _writer;
 		_writer = 0;
 	}
-	
-	free(_lastday);
-	
 }
 

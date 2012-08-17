@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include <sstream>
 #include <ctime>
 #include <cstdlib>
@@ -52,19 +53,27 @@ string Utils::getStringFilenameDate() {
 	tm * formatedTime = getDay();
 	
 	ostringstream stream;
-	stream << formatedTime->tm_year << "_" << formatedTime->tm_mon + 1 << "_" << formatedTime->tm_mday;
-	
-	free(formatedTime);
+	// tm_year is the number of years since 1900. So, We add 1900 years to format correctly;
+	stream << formatedTime->tm_year + 1900 << "_" << formatedTime->tm_mon + 1 << "_" << formatedTime->tm_mday;
 	
 	return stream.str();
 }
 
+#include <cstdio>
+#include <cstring>
+
 string Utils::getStringDateTime() {
+	
+	char stringified[25];
 	time_t timestamp;
+	tm * formatedTime;
 	
 	time(&timestamp);
+	formatedTime = localtime(&timestamp);
 	
-	return ctime(&timestamp);
+	strftime(stringified, 25, "%c", formatedTime);
+	
+	return stringified;
 }
 
 tm * Utils::getDay() {

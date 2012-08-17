@@ -69,7 +69,6 @@ void LogWriter::writeLog(std::string message, LogLevel logLevel) {
 	
 	(*_file) << logLine;
 	cerr << logLine;
-	cout << logLine;
 }
 
 LogWriter::~LogWriter() {

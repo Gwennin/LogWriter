@@ -9,6 +9,8 @@
 
 namespace Logger {
 
+	class LogWriter;
+
 	class Log {
 		
 	public:
